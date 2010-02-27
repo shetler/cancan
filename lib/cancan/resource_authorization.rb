@@ -24,7 +24,7 @@ module CanCan
     end
     
     def authorize_resource
-      @controller.unauthorized! if @controller.cannot?(params[:action].to_sym, resource.model_instance || resource.model_class)
+      @controller.unauthorized!(params[:action].to_sym, resource.model_instance || resource.model_class) if @controller.cannot?(params[:action].to_sym, resource.model_instance || resource.model_class)
     end
     
     private
@@ -60,3 +60,4 @@ module CanCan
     end
   end
 end
+
