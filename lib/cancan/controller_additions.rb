@@ -137,8 +137,8 @@ module CanCan
     # 
     # See the load_and_authorize_resource method to automatically add
     # the "unauthorized!" behavior to a RESTful controller's actions.
-    def unauthorized!(message = "You are not authorized to access this page.")
-      raise AccessDenied, message
+    def unauthorized!(action, noun, message = "You are not authorized to access this page.")
+      raise AccessDenied.new(action, noun), message
     end
     
     # Creates and returns the current user's ability. You generally do not invoke
